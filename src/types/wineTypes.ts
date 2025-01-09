@@ -111,3 +111,20 @@ export interface WineRequest extends WineRequestFilter {
   page: number;
   size: number;
 }
+
+export interface WineFilter {
+  id: string;
+  name: string;
+  count: number;
+}
+
+export interface WineFiltersRequest {
+  category?: WineFilter[];
+  colour?: WineFilter[];
+  sugarType?: WineFilter[];
+  vintage?: WineFilter[];
+  country?: WineFilter[];
+  region?: WineFilter[];
+  grapes?: WineFilter[];
+  bottleVolume?: WineFilter[];
+}

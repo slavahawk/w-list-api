@@ -1,11 +1,12 @@
 import { api } from "../api/api";
-import type {
+import {
   WineResponse,
   UpdateWineRequest,
   CreateWineRequest,
   Wine,
   SearchWineRequest,
   WineRequest,
+  WineFiltersRequest,
 } from "../types/wineTypes";
 
 const url = "/wines";
@@ -71,6 +72,11 @@ export const WineService = {
     const response = await api.get<WineResponse[]>(`${url}/search`, {
       params,
     });
+    return response.data;
+  },
+
+  async getFilter(): Promise<WineFiltersRequest> {
+    const response = await api.get<WineFiltersRequest>(`${url}/filters`);
     return response.data;
   },
 };
