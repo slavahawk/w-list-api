@@ -37,24 +37,40 @@ export type SugarTypeValueType = (typeof SugarTypeEnum)[SugarType];
 export interface Wine {
   id: number;
   name: string;
-  category: string;
-  colour: string;
-  sugarType: string;
+  category: WineCategoryEnum;
+  colour: WineColourEnum;
+  sugarType: SugarTypeEnum;
   bottleVolume: number;
   alcoholByVolume: number;
   countryId: number;
   regionId?: number;
   grapeIds: number[];
+  originalImagePath: string;
+  mediumImagePath: null | string;
+  tinyImagePath: null | string;
+  vintage: number;
+  interestingFacts: string;
+  organoleptic: string;
+}
+
+export interface WineRoot extends Wine {
+  createdAt: string;
+  isDeleted: boolean;
+  isHidden: boolean;
+  updatedAt: string;
 }
 
 export interface WineResponse {
-  id: number;
-  name: string;
-  category: string;
-  colour: string;
-  sugarType: string;
-  bottleVolume: number;
-  alcoholByVolume: number;
+  page: {
+    number: number;
+    size: number;
+    totalElements: number;
+    totalPages: number;
+  };
+  _embedded: {
+    adminWineResponseList: Wine[];
+    rootWineResponseList: WineRoot[];
+  };
 }
 
 export interface UpdateWineRequest {
