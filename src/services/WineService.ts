@@ -6,7 +6,7 @@ import {
   Wine,
   SearchWineRequest,
   WineRequest,
-  WineFiltersRequest,
+  WineFilters,
 } from "../types/wineTypes";
 
 const url = "/wines";

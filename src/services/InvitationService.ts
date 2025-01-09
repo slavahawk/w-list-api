@@ -2,7 +2,7 @@ import { api } from "../api/api";
 import type { Invitation, InvitationRequest } from "../types/invitationTypes";
 import { AuthServiceError } from "../error/ServiceError";
 
-const InvitationService = {
+export const InvitationService = {
   async getAll(): Promise<Invitation[]> {
     try {
       const response = await api.get("/invitations");
@@ -38,5 +38,3 @@ const InvitationService = {
     }
   },
 };
-
-export default InvitationService;
