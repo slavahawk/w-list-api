@@ -15,5 +15,8 @@ export * from "./src/types/regionTypes";
 export * from "./src/types/wineTypes";
 export * from "./src/types/wineListTypes";
 
+// const
 export * from "./src/const/localstorage";
+
+// api
 export * from "./src/api/api";

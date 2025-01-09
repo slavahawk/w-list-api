@@ -15,6 +15,7 @@ export const AuthService = {
   async register(data: RegistrationRequest): Promise<AuthResponse> {
     try {
       const response = await api.post<AuthResponse>(`${url}/register`, data);
+
       return response.data;
     } catch (error) {
       throw new AuthServiceError(
@@ -26,7 +27,7 @@ export const AuthService = {
 
   async login(data: LoginRequest): Promise<AuthResponse> {
     try {
-      const response = await api.post<AuthResponse>(`${url}/login`, data);
+      const response = await api.post<AuthResponse>(`${url}`, data);
       return response.data;
     } catch (error) {
       throw new AuthServiceError(

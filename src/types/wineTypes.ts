@@ -1,17 +1,38 @@
-export type WineCategory =
-  | "SPARKLING"
-  | "CHAMPAGNE"
-  | "WHITE"
-  | "ORANGE"
-  | "ROSE"
-  | "RED"
-  | "DESSERT"
-  | "FORTIFIED"
-  | "NON_ALCOHOL";
+export enum WineCategoryEnum {
+  SPARKLING = "SPARKLING",
+  CHAMPAGNE = "CHAMPAGNE",
+  WHITE = "WHITE",
+  ORANGE = "ORANGE",
+  ROSE = "ROSE",
+  RED = "RED",
+  DESSERT = "DESSERT",
+  FORTIFIED = "FORTIFIED",
+  NON_ALCOHOL = "NON_ALCOHOL",
+}
 
-export type WineColour = "RED" | "WHITE" | "ORANGE" | "ROSE";
+export enum WineColourEnum {
+  RED = "RED",
+  WHITE = "WHITE",
+  ORANGE = "ORANGE",
+  ROSE = "ROSE",
+}
 
-export type SugarType = "DRY" | "SEMI_DRY" | "SEMI_SWEET" | "SWEET";
+export enum SugarTypeEnum {
+  DRY = "DRY",
+  SEMI_DRY = "SEMI_DRY",
+  SEMI_SWEET = "SEMI_SWEET",
+  SWEET = "SWEET",
+}
+
+// Использование keyof для динамического получения значений
+export type WineCategoryType = keyof typeof WineCategoryEnum;
+export type WineColourType = keyof typeof WineColourEnum;
+export type SugarType = keyof typeof SugarTypeEnum;
+
+// Если необходимо, для получения значений перечисления в строковом формате
+export type WineCategoryValueType = (typeof WineCategoryEnum)[WineCategoryType];
+export type WineColourValueType = (typeof WineColourEnum)[WineColourType];
+export type SugarTypeValueType = (typeof SugarTypeEnum)[SugarType];
 
 export interface Wine {
   id: number;
@@ -54,10 +75,10 @@ export interface UpdateWineRequest {
 
 export interface CreateWineRequest {
   name: string;
-  category: WineCategory;
-  colour: WineColour;
+  category: WineCategoryEnum;
+  colour: WineColourEnum;
   vintage?: number | null; // Optional
-  sugarType: SugarType;
+  sugarType: SugarTypeEnum;
   bottleVolume: number;
   alcoholByVolume: number;
   countryId: number;
@@ -66,4 +87,27 @@ export interface CreateWineRequest {
   interestingFacts?: string; // Optional
   organoleptic?: string; // Optional
   isHidden: boolean;
+}
+
+export interface SearchWineRequest {
+  name: string;
+  page: number;
+  size: number;
+  sort?: string;
+}
+
+export interface WineRequestFilter {
+  category?: WineCategoryEnum;
+  colour?: WineColourEnum;
+  sugarType?: SugarTypeEnum;
+  vintage?: number;
+  countryId?: number;
+  regionId?: number;
+  grapeId?: number;
+  bottleVolume?: number;
+}
+
+export interface WineRequest extends WineRequestFilter {
+  page: number;
+  size: number;
 }
