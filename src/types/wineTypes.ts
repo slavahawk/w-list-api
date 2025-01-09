@@ -134,7 +134,7 @@ export interface WineFilter {
   count: number;
 }
 
-export interface WineFiltersRequest {
+export interface WineFilters {
   category?: WineFilter[];
   colour?: WineFilter[];
   sugarType?: WineFilter[];

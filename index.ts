@@ -17,6 +17,7 @@ export * from "./src/types/wineListTypes";
 
 // const
 export * from "./src/const/localstorage";
+export * from "./src/const/db";
 
 // api
 export * from "./src/api/api";

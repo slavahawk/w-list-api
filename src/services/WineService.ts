@@ -75,8 +75,8 @@ export const WineService = {
     return response.data;
   },
 
-  async getFilter(): Promise<WineFiltersRequest> {
-    const response = await api.get<WineFiltersRequest>(`${url}/filters`);
+  async getFilter(): Promise<WineFilters> {
+    const response = await api.get<WineFilters>(`${url}/filters`);
     return response.data;
   },
 };
