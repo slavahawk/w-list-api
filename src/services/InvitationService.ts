@@ -1,6 +1,6 @@
 import { api } from "../api/api";
 import type { Invitation, InvitationRequest } from "../types/invitationTypes";
-import { AuthServiceError } from "../error/ServiceError";
+import { ServiceError } from "../error/ServiceError";
 
 export const InvitationService = {
   async getAll(): Promise<Invitation[]> {
@@ -8,7 +8,7 @@ export const InvitationService = {
       const response = await api.get("/invitations");
       return response.data;
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Ошибка при отправке приглашения",
         error.response?.status,
       );
@@ -19,7 +19,7 @@ export const InvitationService = {
     try {
       await api.post("/invitations/send", invitationData);
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Ошибка при отправке приглашения:",
         error.response?.status,
       );
@@ -30,7 +30,7 @@ export const InvitationService = {
     try {
       await api.post(`/invitations/${token}/confirm`);
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message ||
           "Ошибка при подтверждении приглашения с токеном ${token}",
         error.response?.status,

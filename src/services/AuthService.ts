@@ -7,7 +7,7 @@ import type {
   RegistrationRequest,
   ResetPasswordRequest,
 } from "../types/authTypes";
-import { AuthServiceError } from "../error/ServiceError";
+import { ServiceError } from "../error/ServiceError";
 
 const url = "/auth";
 
@@ -18,7 +18,7 @@ export const AuthService = {
 
       return response.data;
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Registration failed",
         error.response?.status,
       );
@@ -30,7 +30,7 @@ export const AuthService = {
       const response = await api.post<AuthResponse>(`${url}`, data);
       return response.data;
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Login failed",
         error.response?.status,
       );
@@ -42,7 +42,7 @@ export const AuthService = {
       const response = await api.post<any>(`${url}/reset-password`, data);
       return response.data;
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Reset password failed",
         error.response?.status,
       );
@@ -54,7 +54,7 @@ export const AuthService = {
       const response = await api.post<any>(`${url}/logout`, data);
       return response.data;
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Logout failed",
         error.response?.status,
       );
@@ -66,7 +66,7 @@ export const AuthService = {
       const response = await api.post<AuthResponse>(`${url}/refresh`, data);
       return response.data;
     } catch (error) {
-      throw new AuthServiceError(
+      throw new ServiceError(
         error.response?.data?.message || "Refresh token failed",
         error.response?.status,
       );
