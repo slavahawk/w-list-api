@@ -1,5 +1,5 @@
-import { api } from "../api/api";
-import type { RegionResponse, UpdateRegionRequest } from "../types/regionTypes";
+import { api } from "../../api/api";
+import type { RegionResponse, UpdateRegionRequest } from "./types";
 
 const url = "/regions";
 

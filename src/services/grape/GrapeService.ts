@@ -1,5 +1,5 @@
-import { api } from "../api/api";
-import { GrapeResponse, GrapeRequest } from "../types/grapeTypes";
+import { api } from "../../api/api";
+import { GrapeResponse, GrapeRequest } from "./types";
 
 const url = "/grapes";
 

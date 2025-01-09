@@ -1,4 +1,4 @@
-import { api } from "../api/api";
+import { api } from "../../api/api";
 import type {
   AuthResponse,
   LoginRequest,
@@ -6,8 +6,8 @@ import type {
   RefreshTokenRequest,
   RegistrationRequest,
   ResetPasswordRequest,
-} from "../types/authTypes";
-import { ServiceError } from "../error/ServiceError";
+} from "./types";
+import { ServiceError } from "../../error/ServiceError";
 
 const url = "/auth";
 

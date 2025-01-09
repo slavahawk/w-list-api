@@ -1,4 +1,4 @@
-import type { Wine, WineRoot } from "./wineTypes";
+import type { Wine, WineRoot } from "../wine";
 
 export interface WineListItem {
   id: number;

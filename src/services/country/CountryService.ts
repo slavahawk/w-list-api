@@ -1,5 +1,5 @@
-import { api } from "../api/api";
-import { CountryResponse, CountryRequest } from "../types/countryTypes";
+import { api } from "../../api/api";
+import { CountryResponse, CountryRequest } from "./types";
 
 const url = "/countries";
 

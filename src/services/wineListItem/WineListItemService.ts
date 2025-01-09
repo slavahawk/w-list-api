@@ -1,10 +1,10 @@
-import { api } from "../api/api"; // Импортируем настроенный экземпляр axios
+import { api } from "../../api/api"; // Импортируем настроенный экземпляр axios
 import type {
   CreateWineList,
   WineListItem,
   WineListItemResponses,
-} from "../types/wineListItemTypes";
-import { ServiceError } from "../error/ServiceError"; // Импортируем интерфейс WineListItem
+} from "./types";
+import { ServiceError } from "../../error/ServiceError"; // Импортируем интерфейс WineListItem
 
 export const WineListItemService = {
   async getAll(listId: number): Promise<WineListItemResponses> {

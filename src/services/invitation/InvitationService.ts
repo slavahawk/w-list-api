@@ -1,6 +1,6 @@
-import { api } from "../api/api";
-import type { Invitation, InvitationRequest } from "../types/invitationTypes";
-import { ServiceError } from "../error/ServiceError";
+import { api } from "../../api/api";
+import type { Invitation, InvitationRequest } from "./types";
+import { ServiceError } from "../../error/ServiceError";
 
 export const InvitationService = {
   async getAll(): Promise<Invitation[]> {
