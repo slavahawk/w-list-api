@@ -1,6 +1,7 @@
 import { api } from "../../api/api"; // Импортируем настроенный экземпляр axios
-import type {
+import {
   CreateWineList,
+  Prices,
   WineListItem,
   WineListItemResponses,
 } from "./types";
@@ -59,29 +60,33 @@ export const WineListItemService = {
     }
   },
 
-  async update(id: number, wineListItemData: Request): Promise<WineListItem> {
+  async update(
+    listId: number,
+    itemId: number,
+    data: Prices,
+  ): Promise<WineListItem> {
     try {
       const response = await api.put<WineListItem>(
-        `${url}/${id}`,
-        wineListItemData,
+        `${url}/${listId}/items/${itemId}`,
+        data,
       );
       return response.data;
     } catch (error) {
       throw new ServiceError(
         error.response?.data?.message ||
-          `Ошибка при обновлении винной позиции с ID ${id}`,
+          `Ошибка при обновлении винной позиции с ID ${itemId}`,
         error.response?.status,
       );
     }
   },
 
-  async delete(id: number): Promise<void> {
+  async delete(listId: number, itemId: number): Promise<void> {
     try {
-      await api.delete(`${url}/${id}`);
+      await api.delete(`${url}/${listId}/items/${itemId}`);
     } catch (error) {
       throw new ServiceError(
         error.response?.data?.message ||
-          `Ошибка при удалении винной позиции с ID ${id}`,
+          `Ошибка при удалении винной позиции с ID ${itemId}`,
         error.response?.status,
       );
     }

@@ -17,6 +17,18 @@ export interface CreateWineList extends Prices {
   wineId: number;
 }
 
+export interface WineListItem {
+  createdAt: string;
+  id: number;
+  isDeleted: boolean;
+  isHidden: boolean;
+  pricePerBottle: number;
+  pricePerGlass: number;
+  updatedAt: string;
+  wine: Wine;
+  wineListId: number;
+}
+
 export interface WineListItemResponses {
   page: {
     number: number;
@@ -27,5 +39,7 @@ export interface WineListItemResponses {
   _embedded: {
     adminWineResponseList: Wine[];
     rootWineResponseList: WineRoot[];
+    rootWineListItemResponseList: WineListItem[];
+    adminWineListItemResponseList: WineListItem[];
   };
 }
