@@ -6,11 +6,13 @@ import type {
 } from "./types";
 import { ServiceError } from "../../error/ServiceError"; // Импортируем интерфейс WineListItem
 
+const url = "/wine-list";
+
 export const WineListItemService = {
   async getAll(listId: number): Promise<WineListItemResponses> {
     try {
       const response = await api.get<WineListItemResponses>(
-        `/wine-lists/${listId}/items`,
+        `${url}/${listId}/items`,
       );
       return response.data;
     } catch (error) {
@@ -25,7 +27,7 @@ export const WineListItemService = {
   async getById(listId: number, itemId: number): Promise<WineListItem> {
     try {
       const response = await api.get<WineListItem>(
-        `/wine-lists/${listId}/items/${itemId}`,
+        `${url}/${listId}/items/${itemId}`,
       );
       return response.data;
     } catch (error) {
@@ -45,7 +47,7 @@ export const WineListItemService = {
   }: CreateWineList): Promise<WineListItem> {
     try {
       const response = await api.post<WineListItem>(
-        `/wine-list-items/${wineListId}/items`,
+        `${url}/${wineListId}/items`,
         { wineId, pricePerBottle, pricePerGlass },
       );
       return response.data;
@@ -60,7 +62,7 @@ export const WineListItemService = {
   async update(id: number, wineListItemData: Request): Promise<WineListItem> {
     try {
       const response = await api.put<WineListItem>(
-        `/wine-list-items/${id}`,
+        `${url}/${id}`,
         wineListItemData,
       );
       return response.data;
@@ -75,7 +77,7 @@ export const WineListItemService = {
 
   async delete(id: number): Promise<void> {
     try {
-      await api.delete(`/wine-list-items/${id}`);
+      await api.delete(`${url}/${id}`);
     } catch (error) {
       throw new ServiceError(
         error.response?.data?.message ||
