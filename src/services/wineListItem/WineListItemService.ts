@@ -46,8 +46,7 @@ export const WineListItemService = {
     try {
       const response = await api.post<WineListItem>(
         `/wine-list-items/${wineListId}/items`,
-        {},
-        { params: { wineId, pricePerBottle, pricePerGlass } },
+        { wineId, pricePerBottle, pricePerGlass },
       );
       return response.data;
     } catch (error) {
