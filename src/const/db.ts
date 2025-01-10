@@ -2,7 +2,7 @@ import {
   SugarTypeEnum,
   WineCategoryEnum,
   WineColourEnum,
-} from "../services/wine/wineTypes";
+} from "../services/wine/types";
 
 export const categoryOptions = [
   { label: "Игристое", value: WineCategoryEnum.SPARKLING },
