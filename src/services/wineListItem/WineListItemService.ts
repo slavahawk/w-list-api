@@ -6,7 +6,7 @@ import type {
 } from "./types";
 import { ServiceError } from "../../error/ServiceError"; // Импортируем интерфейс WineListItem
 
-const url = "/wine-list";
+const url = "/wine-lists";
 
 export const WineListItemService = {
   async getAll(listId: number): Promise<WineListItemResponses> {
