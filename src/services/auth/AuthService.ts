@@ -3,6 +3,7 @@ import type {
   AuthResponse,
   LoginRequest,
   LogoutRequest,
+  Me,
   RefreshTokenRequest,
   RegistrationRequest,
   ResetPasswordRequest,
@@ -31,7 +32,19 @@ export const AuthService = {
       return response.data;
     } catch (error) {
       throw new ServiceError(
-        error.response?.data?.message || "Login failed",
+        error.response?.data?.message || "Неверный логин или пароль",
+        error.response?.status,
+      );
+    }
+  },
+
+  async loginCustomer(data: LoginRequest): Promise<AuthResponse> {
+    try {
+      const response = await api.post<AuthResponse>(`${url}/customer`, data);
+      return response.data;
+    } catch (error) {
+      throw new ServiceError(
+        error.response?.data?.message || "Неверный логин или пароль",
         error.response?.status,
       );
     }
@@ -68,6 +81,19 @@ export const AuthService = {
     } catch (error) {
       throw new ServiceError(
         error.response?.data?.message || "Refresh token failed",
+        error.response?.status,
+      );
+    }
+  },
+
+  async me(): Promise<Me> {
+    try {
+      const response = await api.post<Me>(`${url}/get-me`);
+      return response.data;
+    } catch (error) {
+      throw new ServiceError(
+        error.response?.data?.message ||
+          "Ошибка получения данных о пользователе",
         error.response?.status,
       );
     }

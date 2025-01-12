@@ -91,4 +91,30 @@ export const WineListItemService = {
       );
     }
   },
+
+  async getActiveList(): Promise<WineListItem> {
+    try {
+      const response = await api.get<WineListItem>(`${url}/active`);
+      return response.data;
+    } catch (error) {
+      throw new ServiceError(
+        error.response?.data?.message ||
+          "Ошибка при получении активной винной карты",
+        error.response?.status,
+      );
+    }
+  },
+
+  async setActiveList(id: number): Promise<WineListItem> {
+    try {
+      const response = await api.post<WineListItem>(`${url}/active`, { id });
+      return response.data;
+    } catch (error) {
+      throw new ServiceError(
+        error.response?.data?.message ||
+          "Ошибка установки активной винной карт",
+        error.response?.status,
+      );
+    }
+  },
 };

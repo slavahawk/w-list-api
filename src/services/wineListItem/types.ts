@@ -17,6 +17,13 @@ export interface CreateWineList extends Prices {
   wineId: number;
 }
 
+export interface Shop {
+  id: number;
+  name: string;
+  createdAt: string;
+  paidTill?: string;
+}
+
 export interface WineListItem {
   createdAt: string;
   id: number;
@@ -27,6 +34,7 @@ export interface WineListItem {
   updatedAt: string;
   wine: Wine;
   wineListId: number;
+  shop: Shop;
 }
 
 export interface WineListItemResponses {
