@@ -9,13 +9,18 @@ import type {
   ResetPasswordRequest,
 } from "./types";
 import { ServiceError } from "../../error/ServiceError";
+import axios from "axios";
+import { API_URL } from "../../const/api";
 
 const url = "/auth";
 
 export const AuthService = {
   async register(data: RegistrationRequest): Promise<AuthResponse> {
     try {
-      const response = await api.post<AuthResponse>(`${url}/register`, data);
+      const response = await api.post<AuthResponse>(
+        API_URL + `${url}/register`,
+        data,
+      );
 
       return response.data;
     } catch (error) {
@@ -28,7 +33,7 @@ export const AuthService = {
 
   async login(data: LoginRequest): Promise<AuthResponse> {
     try {
-      const response = await api.post<AuthResponse>(`${url}`, data);
+      const response = await axios.post<AuthResponse>(API_URL + `${url}`, data);
       return response.data;
     } catch (error) {
       throw new ServiceError(
@@ -40,7 +45,10 @@ export const AuthService = {
 
   async loginCustomer(data: LoginRequest): Promise<AuthResponse> {
     try {
-      const response = await api.post<AuthResponse>(`${url}/customer`, data);
+      const response = await axios.post<AuthResponse>(
+        API_URL + `${url}/customer`,
+        data,
+      );
       return response.data;
     } catch (error) {
       throw new ServiceError(

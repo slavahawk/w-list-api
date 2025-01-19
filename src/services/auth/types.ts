@@ -37,6 +37,26 @@ export enum Role {
   CUSTOMER = "CUSTOMER",
 }
 
+export const roleWineList = (role: Role) => {
+  const roles = {
+    [Role.ROOT]: "rootWineResponseList",
+    [Role.ADMIN]: "adminWineResponseList",
+    [Role.WORKER]: "workerWineResponseList",
+    [Role.CUSTOMER]: "customerWineResponseList",
+  };
+  return roles[role];
+};
+
+export const roleWineListItem = (role: Role) => {
+  const roles = {
+    [Role.ROOT]: "rootWineListItemResponseList",
+    [Role.ADMIN]: "adminWineListItemResponseList",
+    [Role.WORKER]: "workerWineListItemResponseList",
+    [Role.CUSTOMER]: "customerWineListItemResponseList",
+  };
+  return roles[role];
+};
+
 export interface Me {
   id: number;
   email: string;

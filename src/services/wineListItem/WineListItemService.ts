@@ -3,6 +3,7 @@ import {
   CreateWineList,
   Prices,
   WineListItem,
+  WineListItemRequest,
   WineListItemResponses,
 } from "./types";
 import { ServiceError } from "../../error/ServiceError"; // Импортируем интерфейс WineListItem
@@ -10,10 +11,14 @@ import { ServiceError } from "../../error/ServiceError"; // Импортируе
 const url = "/wine-lists";
 
 export const WineListItemService = {
-  async getAll(listId: number): Promise<WineListItemResponses> {
+  async getAll(
+    listId: number,
+    params: WineListItemRequest,
+  ): Promise<WineListItemResponses> {
     try {
       const response = await api.get<WineListItemResponses>(
         `${url}/${listId}/items`,
+        { params },
       );
       return response.data;
     } catch (error) {

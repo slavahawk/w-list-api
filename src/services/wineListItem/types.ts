@@ -1,11 +1,10 @@
-import type { Wine, WineRoot } from "../wine";
-
-export interface WineListItem {
-  id: number;
-  name: string;
-  createdAt: string; // Date as string (ISO format)
-  wines: Wine[];
-}
+import {
+  SugarTypeEnum,
+  Wine,
+  WineCategoryEnum,
+  WineColourEnum,
+  WineRoot,
+} from "../wine";
 
 export interface Prices {
   pricePerBottle: number;
@@ -29,6 +28,7 @@ export interface WineListItem {
   id: number;
   isDeleted: boolean;
   isHidden: boolean;
+  isActive: boolean;
   pricePerBottle: number;
   pricePerGlass: number;
   updatedAt: string;
@@ -47,7 +47,22 @@ export interface WineListItemResponses {
   _embedded: {
     adminWineResponseList: Wine[];
     rootWineResponseList: WineRoot[];
+    workerWineListItemResponseList: WineListItem[];
+    customerWineListItemResponseList: WineListItem[];
     rootWineListItemResponseList: WineListItem[];
     adminWineListItemResponseList: WineListItem[];
   };
+}
+
+export interface WineListItemRequest {
+  category?: WineCategoryEnum;
+  colour?: WineColourEnum;
+  sugarType?: SugarTypeEnum;
+  vintage?: number;
+  countryId?: number;
+  regionId?: number;
+  grapeId?: number;
+  bottleVolume?: number;
+  page: number;
+  size: number;
 }

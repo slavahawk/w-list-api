@@ -3,6 +3,7 @@ import { CreateWineListRequest, WineList } from "./types";
 import { ServiceError } from "../../error/ServiceError";
 
 const url = "/wine-lists";
+const urlActive = "/active-wine-list";
 
 export const WineListService = {
   async create(data: CreateWineListRequest): Promise<WineList> {
@@ -31,7 +32,7 @@ export const WineListService = {
 
   async getActiveList(): Promise<WineList> {
     try {
-      const response = await api.get<WineList>(`${url}/active`);
+      const response = await api.get<WineList>(urlActive);
       return response.data;
     } catch (error) {
       throw new ServiceError(
@@ -44,7 +45,9 @@ export const WineListService = {
 
   async setActiveList(id: number): Promise<WineList> {
     try {
-      const response = await api.post<WineList>(`${url}/active`, { id });
+      const response = await api.post<WineList>(urlActive, {
+        id,
+      });
       return response.data;
     } catch (error) {
       throw new ServiceError(

@@ -30,11 +30,31 @@ export const sugarTypesOptions = [
   { label: "Сладкое", value: SugarTypeEnum.SWEET },
 ];
 
-const volumes = [
+const volumesBottle = [
   0.25, 0.33, 0.375, 0.5, 0.68, 0.7, 0.75, 1.0, 1.5, 3.0, 4.5, 6.0,
 ];
 
-export const bottleVolumeOptions = volumes.map((volume) => ({
+const volumesGlass = [40, 50, 75, 100, 125];
+
+export const bottleVolumeOptions = volumesBottle.map((volume) => ({
   name: `${volume}л`,
   id: volume,
 }));
+
+export const glassVolumeOptions = volumesGlass.map((volume) => ({
+  name: `${volume}л`,
+  id: volume,
+}));
+
+const getLabelByValue = (options, value) => {
+  const foundOption = options.find((option) => option.value === value);
+  return foundOption ? foundOption.label : null; // Возвращает null, если значение не найдено
+};
+
+// Функции для получения label по value для каждого из массивов
+export const getCategoryLabelByValue = (value: WineCategoryEnum) =>
+  getLabelByValue(categoryOptions, value);
+export const getColourLabelByValue = (value: WineColourEnum) =>
+  getLabelByValue(colourOptions, value);
+export const getSugarTypeLabelByValue = (value: SugarTypeEnum) =>
+  getLabelByValue(sugarTypesOptions, value);
