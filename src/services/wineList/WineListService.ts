@@ -32,7 +32,7 @@ export const WineListService = {
 
   async getActiveList(): Promise<WineList> {
     try {
-      const response = await api.get<WineList>(urlActive);
+      const response = await api.get<WineList>(`${urlActive}`);
       return response.data;
     } catch (error) {
       throw new ServiceError(
@@ -45,7 +45,7 @@ export const WineListService = {
 
   async setActiveList(id: number): Promise<WineList> {
     try {
-      const response = await api.post<WineList>(urlActive, {
+      const response = await api.post<WineList>(`${urlActive}`, {
         id,
       });
       return response.data;
