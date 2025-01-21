@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { CreateWineListRequest, WineList } from "./types";
+import { CreateWineListRequest, WineList, WineListActive } from "./types";
 import { ServiceError } from "../../error/ServiceError";
 
 const url = "/wine-lists";
@@ -30,9 +30,9 @@ export const WineListService = {
     return response.data;
   },
 
-  async getActiveList(): Promise<WineList> {
+  async getActiveList(): Promise<WineListActive> {
     try {
-      const response = await api.get<WineList>(`${urlActive}`);
+      const response = await api.get<WineListActive>(`${urlActive}`);
       return response.data;
     } catch (error) {
       throw new ServiceError(
