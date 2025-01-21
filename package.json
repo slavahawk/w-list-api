@@ -1,0 +1,22 @@
+{
+  "name": "w-list-api",
+  "version": "1.1.9-test15",
+  "description": "",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slavahawk/w-list-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slavahawk/w-list-api/issues"
+  },
+  "homepage": "https://github.com/slavahawk/w-list-api#readme",
+  "dependencies": {
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}
