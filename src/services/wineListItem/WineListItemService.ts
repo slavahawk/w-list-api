@@ -50,11 +50,12 @@ export const WineListItemService = {
     wineId,
     pricePerBottle,
     pricePerGlass,
+    glassVolume,
   }: CreateWineList): Promise<WineListItem> {
     try {
       const response = await api.post<WineListItem>(
         `${url}/${wineListId}/items`,
-        { wineId, pricePerBottle, pricePerGlass },
+        { wineId, pricePerBottle, pricePerGlass, glassVolume },
       );
       return response.data;
     } catch (error) {

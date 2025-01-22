@@ -42,6 +42,7 @@ export interface Wine {
   sugarType: SugarTypeEnum;
   bottleVolume: number;
   alcoholByVolume: number;
+  glassVolume?: number;
   countryId: number;
   regionId?: number;
   grapeIds: number[];

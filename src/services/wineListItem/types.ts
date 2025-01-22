@@ -14,6 +14,7 @@ export interface Prices {
 export interface CreateWineList extends Prices {
   wineListId: number;
   wineId: number;
+  glassVolume: number
 }
 
 export interface Shop {
