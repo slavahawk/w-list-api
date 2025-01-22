@@ -11,10 +11,13 @@ export interface Prices {
   pricePerGlass?: number;
 }
 
-export interface CreateWineList extends Prices {
+export interface PricesWithGlass extends Prices {
+  glassVolume?: number;
+}
+
+export interface CreateWineList extends PricesWithGlass {
   wineListId: number;
   wineId: number;
-  glassVolume: number
 }
 
 export interface Shop {

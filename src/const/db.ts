@@ -37,12 +37,12 @@ const volumesBottle = [
 const volumesGlass = [40, 50, 75, 100, 125];
 
 export const bottleVolumeOptions = volumesBottle.map((volume) => ({
-  name: `${volume}л`,
+  name: `${volume}мл`,
   id: volume,
 }));
 
 export const glassVolumeOptions = volumesGlass.map((volume) => ({
-  name: `${volume}л`,
+  name: `${volume}мл`,
   id: volume,
 }));
 

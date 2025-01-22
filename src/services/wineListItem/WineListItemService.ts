@@ -2,6 +2,7 @@ import { api } from "../../api/api"; // Импортируем настроен�
 import {
   CreateWineList,
   Prices,
+  PricesWithGlass,
   WineListItem,
   WineListItemRequest,
   WineListItemResponses,
@@ -69,7 +70,7 @@ export const WineListItemService = {
   async update(
     listId: number,
     itemId: number,
-    data: Prices,
+    data: PricesWithGlass,
   ): Promise<WineListItem> {
     try {
       const response = await api.put<WineListItem>(
