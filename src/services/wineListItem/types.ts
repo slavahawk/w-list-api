@@ -35,6 +35,7 @@ export interface WineListItem {
   isActive: boolean;
   pricePerBottle: number;
   pricePerGlass: number;
+  glassVolume?: number;
   updatedAt: string;
   wine: Wine;
   wineListId: number;
