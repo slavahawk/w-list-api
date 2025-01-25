@@ -41,7 +41,7 @@ const refreshAccessToken = async () => {
     localStorage.removeItem(REFRESH_TOKEN);
 
     // Здесь можно перенаправить на страницу входа
-    // window.location.reload(); // Альтернативный вариант
+    window.location.reload(); // Альтернативный вариант
   }
 };
 
