@@ -16,12 +16,13 @@ const getToken = (key: string): string | null => localStorage.getItem(key);
 let isRefreshing = false;
 let failedQueue: Array<(token: string) => void> = [];
 
+// Функция для обновления Access Token
 const refreshAccessToken = async () => {
   const refreshToken = getToken(REFRESH_TOKEN);
   if (!refreshToken) return null;
 
   try {
-    const { data } = await axios.post(API_URL + "/auth/refresh", {
+    const { data } = await axios.post(`${API_URL}/auth/refresh`, {
       refreshToken,
     });
     const { accessToken, refreshToken: newRefreshToken } = data.details;
@@ -32,7 +33,7 @@ const refreshAccessToken = async () => {
 
     // Уведомляем все запросы в очереди о новом токене
     failedQueue.forEach((callback) => callback(accessToken));
-    failedQueue = [];
+    failedQueue = []; // Очищаем очередь
 
     return accessToken;
   } catch (error) {
@@ -40,8 +41,9 @@ const refreshAccessToken = async () => {
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(REFRESH_TOKEN);
 
-    // Здесь можно перенаправить на страницу входа
+    // Перенаправление или другой обработчик ошибки
     window.location.reload(); // Альтернативный вариант
+    throw error; // Еще один способ обработки ошибок
   }
 };
 
@@ -80,7 +82,7 @@ api.interceptors.response.use(
         if (newAccessToken) {
           originalRequest.headers["Authorization"] =
             bearerString(newAccessToken);
-          return api(originalRequest);
+          return api(originalRequest); // Повторный запрос после обновления токена
         }
       } catch (error) {
         return Promise.reject(error);
