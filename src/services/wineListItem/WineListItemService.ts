@@ -8,6 +8,7 @@ import {
   WineListItemResponses,
 } from "./types";
 import { ServiceError } from "../../error/ServiceError"; // Импортируем интерфейс WineListItem
+import ToastService from "primevue/toastservice";
 
 const url = "/wine-lists";
 
@@ -61,7 +62,7 @@ export const WineListItemService = {
       return response.data;
     } catch (error) {
       throw new ServiceError(
-        error.response?.data?.message || `Ошибка при создании винной позиции`,
+        error.response?.data?.message,
         error.response?.status,
       );
     }
