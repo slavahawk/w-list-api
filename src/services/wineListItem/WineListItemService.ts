@@ -3,6 +3,7 @@ import {
   CreateWineList,
   Prices,
   PricesWithGlass,
+  UpdateWineListItem,
   WineListItem,
   WineListItemRequest,
   WineListItemResponses,
@@ -71,7 +72,7 @@ export const WineListItemService = {
   async update(
     listId: number,
     itemId: number,
-    data: PricesWithGlass,
+    data: UpdateWineListItem,
   ): Promise<WineListItem> {
     try {
       const response = await api.put<WineListItem>(

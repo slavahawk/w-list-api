@@ -15,6 +15,10 @@ export interface PricesWithGlass extends Prices {
   glassVolume?: number;
 }
 
+export interface UpdateWineListItem extends PricesWithGlass {
+  isHidden: boolean;
+}
+
 export interface CreateWineList extends PricesWithGlass {
   wineListId: number;
   wineId: number;
