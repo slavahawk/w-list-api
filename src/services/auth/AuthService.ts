@@ -11,6 +11,8 @@ import type {
 import { ServiceError } from "../../error/ServiceError";
 import axios from "axios";
 import { API_URL } from "../../const/api";
+import { ForgotPasswordRequest } from "./types";
+import { ApiResponse } from "../../types/types";
 
 const url = "/auth";
 
@@ -61,6 +63,21 @@ export const AuthService = {
   async resetPassword(data: ResetPasswordRequest): Promise<any> {
     try {
       const response = await api.post<any>(`${url}/reset-password`, data);
+      return response.data;
+    } catch (error) {
+      throw new ServiceError(
+        error.response?.data?.message || "Reset password failed",
+        error.response?.status,
+      );
+    }
+  },
+
+  async forgotPassword(data: ForgotPasswordRequest): Promise<ApiResponse> {
+    try {
+      const response = await api.post<ApiResponse>(
+        `${url}/forgot-password`,
+        data,
+      );
       return response.data;
     } catch (error) {
       throw new ServiceError(
