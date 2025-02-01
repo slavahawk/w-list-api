@@ -41,6 +41,11 @@ const refreshAccessToken = async () => {
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(REFRESH_TOKEN);
 
+    // Dispatch событие error
+    window.dispatchEvent(
+      new CustomEvent("api-error", { detail: error.message }),
+    );
+
     // Перенаправление или другой обработчик ошибки
     window.location.reload(); // Альтернативный вариант
     throw error; // Еще один способ обработки ошибок
@@ -88,6 +93,13 @@ api.interceptors.response.use(
         return Promise.reject(error);
       } finally {
         isRefreshing = false;
+
+        // Dispatch событие error, если ответ не успел перезапроситься после обновления токена
+        if (error.response?.status === 401) {
+          window.dispatchEvent(
+            new CustomEvent("api-error", { detail: error.message }),
+          );
+        }
       }
     }
 
