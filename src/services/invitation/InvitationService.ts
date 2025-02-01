@@ -4,37 +4,15 @@ import { ServiceError } from "../../error/ServiceError";
 
 export const InvitationService = {
   async getAll(): Promise<Invitation[]> {
-    try {
-      const response = await api.get("/invitations");
-      return response.data;
-    } catch (error) {
-      throw new ServiceError(
-        error.response?.data?.message || "Ошибка при отправке приглашения",
-        error.response?.status,
-      );
-    }
+    const response = await api.get("/invitations");
+    return response.data;
   },
 
   async send(invitationData: InvitationRequest): Promise<void> {
-    try {
-      await api.post("/invitations/send", invitationData);
-    } catch (error) {
-      throw new ServiceError(
-        error.response?.data?.message || "Ошибка при отправке приглашения:",
-        error.response?.status,
-      );
-    }
+    await api.post("/invitations/send", invitationData);
   },
 
   async confirm(token: string): Promise<void> {
-    try {
-      await api.post(`/invitations/${token}/confirm`);
-    } catch (error) {
-      throw new ServiceError(
-        error.response?.data?.message ||
-          "Ошибка при подтверждении приглашения с токеном ${token}",
-        error.response?.status,
-      );
-    }
+    await api.post(`/invitations/${token}/confirm`);
   },
 };

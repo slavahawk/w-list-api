@@ -1,6 +1,5 @@
 import { api } from "../../api/api";
 import { CreateWineListRequest, WineList, WineListActive } from "./types";
-import { ServiceError } from "../../error/ServiceError";
 
 const url = "/wine-lists";
 const urlActive = "/active-wine-list";
@@ -31,30 +30,14 @@ export const WineListService = {
   },
 
   async getActiveList(): Promise<WineListActive> {
-    try {
-      const response = await api.get<WineListActive>(`${urlActive}`);
-      return response.data;
-    } catch (error) {
-      throw new ServiceError(
-        error.response?.data?.message ||
-          "Ошибка при получении активной винной карты",
-        error.response?.status,
-      );
-    }
+    const response = await api.get<WineListActive>(`${urlActive}`);
+    return response.data;
   },
 
   async setActiveList(id: number): Promise<WineList> {
-    try {
-      const response = await api.post<WineList>(`${urlActive}`, {
-        id,
-      });
-      return response.data;
-    } catch (error) {
-      throw new ServiceError(
-        error.response?.data?.message ||
-          "Ошибка установки активной винной карт",
-        error.response?.status,
-      );
-    }
+    const response = await api.post<WineList>(`${urlActive}`, {
+      id,
+    });
+    return response.data;
   },
 };
