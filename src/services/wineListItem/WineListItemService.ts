@@ -6,6 +6,7 @@ import {
   WineListItemRequest,
   WineListItemResponses,
 } from "./types";
+import { WineFilters } from "../wine";
 
 const url = "/wine-lists";
 
@@ -17,6 +18,13 @@ export const WineListItemService = {
     const response = await api.get<WineListItemResponses>(
       `${url}/${listId}/items`,
       { params },
+    );
+    return response.data;
+  },
+
+  async getFilters(listId: number): Promise<WineFilters> {
+    const response = await api.get<WineFilters>(
+      `${url}/${listId}/items/filters`,
     );
     return response.data;
   },

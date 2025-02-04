@@ -29,8 +29,8 @@ export const WineListService = {
     return response.data;
   },
 
-  async getActiveList(): Promise<WineListActive> {
-    const response = await api.get<WineListActive>(`${urlActive}`);
+  async getActiveList(shopId: number): Promise<WineListActive> {
+    const response = await api.get<WineListActive>(`${urlActive}/${shopId}`);
     return response.data;
   },
 

@@ -1,18 +1,26 @@
 import { api } from "../../api/api";
 import type { Invitation, InvitationRequest } from "./types";
-import { ServiceError } from "../../error/ServiceError";
+
+const url = "/invitations";
 
 export const InvitationService = {
   async getAll(): Promise<Invitation[]> {
-    const response = await api.get("/invitations");
+    const response = await api.get(url);
     return response.data;
   },
 
   async send(invitationData: InvitationRequest): Promise<void> {
-    await api.post("/invitations/send", invitationData);
+    const response = await api.post(`${url}/send`, invitationData);
+    return response.data;
   },
 
   async confirm(token: string): Promise<void> {
-    await api.post(`/invitations/${token}/confirm`);
+    const response = await api.post(`${url}/${token}/confirm`);
+    return response.data;
+  },
+
+  async validate(token: string): Promise<void> {
+    const response = await api.post(`${url}/${token}/validate`);
+    return response.data;
   },
 };

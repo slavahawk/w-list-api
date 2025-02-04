@@ -32,19 +32,6 @@ export const AuthService = {
     return response.data;
   },
 
-  async loginCustomer(data: LoginRequest): Promise<AuthResponse> {
-    const response = await api.post<AuthResponse>(
-      API_URL + `${url}/customer`,
-      data,
-      {
-        headers: {
-          Authorization: undefined, // Это уберет заголовок Authorization из запроса
-        },
-      },
-    );
-    return response.data;
-  },
-
   async resetPassword(data: ResetPasswordRequest): Promise<any> {
     const response = await api.post<any>(`${url}/reset-password`, data);
     return response.data;
