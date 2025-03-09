@@ -1,8 +1,7 @@
 import { api } from "../../api/api";
-import { CreateWineListRequest, WineList, WineListActive } from "./types";
+import { CreateWineListRequest, WineList } from "./types";
 
 const url = "/wine-lists";
-const urlActive = "/active-wine-list";
 
 export const WineListService = {
   async create(data: CreateWineListRequest): Promise<WineList> {
@@ -26,18 +25,6 @@ export const WineListService = {
 
   async getAll(): Promise<WineList[]> {
     const response = await api.get<WineList[]>(`${url}`);
-    return response.data;
-  },
-
-  async getActiveList(shopId: number): Promise<WineListActive> {
-    const response = await api.get<WineListActive>(`${urlActive}/${shopId}`);
-    return response.data;
-  },
-
-  async setActiveList(id: number): Promise<WineList> {
-    const response = await api.post<WineList>(`${urlActive}`, {
-      id,
-    });
     return response.data;
   },
 };
