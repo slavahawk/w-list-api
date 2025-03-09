@@ -19,6 +19,11 @@ export const AuthService = {
     const response = await api.post<AuthResponse>(
       API_URL + `${url}/register`,
       data,
+      {
+        headers: {
+          Authorization: undefined, // Это уберет заголовок Authorization из запроса
+        },
+      },
     );
     return response.data;
   },
