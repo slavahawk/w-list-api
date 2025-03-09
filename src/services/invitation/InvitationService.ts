@@ -14,8 +14,8 @@ export const InvitationService = {
     return response.data;
   },
 
-  async confirm(token: string): Promise<void> {
-    const response = await api.post(`${url}/${token}/confirm`);
+  async confirm(token: string, newPassword: string): Promise<void> {
+    const response = await api.post(`${url}/${token}/confirm`, { newPassword });
     return response.data;
   },
 
