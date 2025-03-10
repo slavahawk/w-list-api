@@ -34,7 +34,7 @@ const volumesBottle = [
   250, 330, 375, 400, 500, 680, 700, 740, 750, 1000, 1500, 3000, 4500, 6000,
 ];
 
-const volumesGlass = [40, 50, 74, 75, 100, 125];
+const volumesGlass = [40, 50, 75, 100, 125];
 
 export const bottleVolumeOptions = volumesBottle.map((volume) => ({
   name: `${volume}мл`,
