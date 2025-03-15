@@ -27,4 +27,15 @@ export const WineListService = {
     const response = await api.get<WineList[]>(`${url}`);
     return response.data;
   },
+
+  async uploadImage(id: number, image: File): Promise<WineList> {
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const response = await api.patch<WineList>(
+      `${url}/upload-image/${id}`,
+      formData,
+    );
+    return response.data;
+  },
 };
