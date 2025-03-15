@@ -1,5 +1,3 @@
-import { Wine } from "../wine";
-
 export interface WineList {
   createdAt: string;
   id: number;
@@ -9,13 +7,6 @@ export interface WineList {
   name: string;
   shopId: number;
   updatedAt: string;
-}
-
-export interface WineListItem {
-  id: number;
-  wine: Wine;
-  pricePerBottle: number;
-  pricePerGlass: number;
 }
 
 export interface CreateWineListRequest {

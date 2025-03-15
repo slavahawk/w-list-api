@@ -25,16 +25,10 @@ export interface CreateWineList extends PricesWithGlass {
   internalComment: string;
 }
 
-export interface Shop {
-  id: number;
-  name: string;
-  createdAt: string;
-  paidTill?: string;
-}
-
 export interface WineListItem {
   createdAt: string;
   id: number;
+  internalComment: string;
   isDeleted: boolean;
   isHidden: boolean;
   isActive: boolean;
@@ -44,7 +38,6 @@ export interface WineListItem {
   updatedAt: string;
   wine: Wine;
   wineListId: number;
-  shop: Shop;
 }
 
 export interface WineListItemResponses {
