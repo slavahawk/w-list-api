@@ -41,6 +41,7 @@ export type SugarTypeValueType = (typeof SugarTypeEnum)[SugarType];
 export interface Wine {
   id: number;
   name: string;
+  ruName: string;
   category: WineCategoryEnum;
   colour: WineColourEnum;
   sugarType: SugarTypeEnum;
