@@ -22,6 +22,7 @@ export interface UpdateWineListItem extends PricesWithGlass {
 export interface CreateWineList extends PricesWithGlass {
   wineListId: number;
   wineId: number;
+  internalComment: string;
 }
 
 export interface Shop {

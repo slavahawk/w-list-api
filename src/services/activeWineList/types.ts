@@ -59,3 +59,9 @@ export interface WineListActive {
     [key: string]: DataWithItems<{ volume: number }>;
   };
 }
+
+export interface ActiveListInfo {
+  shopId: number;
+  shopName: string;
+  imagePath: string;
+}
