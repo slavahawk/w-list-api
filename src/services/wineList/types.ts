@@ -7,6 +7,7 @@ export interface WineList {
   name: string;
   shopId: number;
   updatedAt: string;
+  imagePath: string;
 }
 
 export interface CreateWineListRequest {
