@@ -14,6 +14,10 @@ export const categoryOptions = [
   { label: "Десертное", value: WineCategoryEnum.DESSERT },
   { label: "Крепленое", value: WineCategoryEnum.FORTIFIED },
   { label: "Безалкогольное", value: WineCategoryEnum.NON_ALCOHOL },
+  { label: "Ликеры", value: WineCategoryEnum.LIQUEUR },
+  { label: "Аквавиты", value: WineCategoryEnum.AQUAVIT },
+  { label: "Граппа", value: WineCategoryEnum.GRAPPA },
+  { label: "Другие", value: WineCategoryEnum.OTHER },
 ];
 
 export const colourOptions = [

@@ -8,6 +8,10 @@ export enum WineCategoryEnum {
   DESSERT = "DESSERT",
   FORTIFIED = "FORTIFIED",
   NON_ALCOHOL = "NON_ALCOHOL",
+  LIQUEUR = "LIQUEUR",
+  AQUAVIT = "AQUAVIT",
+  GRAPPA = "GRAPPA",
+  OTHER = "OTHER",
 }
 
 export enum WineColourEnum {
