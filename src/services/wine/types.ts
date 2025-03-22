@@ -1,9 +1,10 @@
 export enum WineCategoryEnum {
   SPARKLING = "SPARKLING",
   CHAMPAGNE = "CHAMPAGNE",
-  STILL = "STILL",
+  WHITE = "WHITE",
   ORANGE = "ORANGE",
   ROSE = "ROSE",
+  RED = "RED",
   DESSERT = "DESSERT",
   FORTIFIED = "FORTIFIED",
   NON_ALCOHOL = "NON_ALCOHOL",
