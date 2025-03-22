@@ -38,8 +38,8 @@ export const WineService = {
     return response.data;
   },
 
-  async update(id: number, data: UpdateWineRequest): Promise<WineResponse> {
-    const response = await api.put<WineResponse>(`${url}/${id}`, data);
+  async update(id: number, data: UpdateWineRequest): Promise<Wine> {
+    const response = await api.put<Wine>(`${url}/${id}`, data);
     return response.data;
   },
 
@@ -59,8 +59,9 @@ export const WineService = {
     return response.data;
   },
 
-  async delete(id: number): Promise<void> {
-    await api.delete(`${url}/${id}`);
+  async delete(id: number): Promise<any> {
+    const response = await api.delete<any>(`${url}/${id}`);
+    return response;
   },
 
   async getAll(params: WineRequest): Promise<WineResponse[]> {
