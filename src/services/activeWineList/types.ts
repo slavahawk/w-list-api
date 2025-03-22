@@ -1,6 +1,12 @@
-import { Shop } from "../wineListItem";
 import { WineList } from "../wineList";
 import { SugarTypeEnum, Wine, WineCategoryEnum, WineColourEnum } from "../wine";
+
+export interface Shop {
+  id: number;
+  name: string;
+  createdAt: string;
+  paidTill: string;
+}
 
 export interface ActiveWineList {
   id: number;

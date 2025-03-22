@@ -5,12 +5,11 @@ import {
 } from "../services/wine/types";
 
 export const categoryOptions = [
+  { label: "Тихое", value: WineCategoryEnum.STILL },
   { label: "Игристое", value: WineCategoryEnum.SPARKLING },
   { label: "Шампанское", value: WineCategoryEnum.CHAMPAGNE },
-  { label: "Белое", value: WineCategoryEnum.WHITE },
   { label: "Оранжевое", value: WineCategoryEnum.ORANGE },
   { label: "Розовое", value: WineCategoryEnum.ROSE },
-  { label: "Красное", value: WineCategoryEnum.RED },
   { label: "Десертное", value: WineCategoryEnum.DESSERT },
   { label: "Крепленое", value: WineCategoryEnum.FORTIFIED },
   { label: "Безалкогольное", value: WineCategoryEnum.NON_ALCOHOL },
