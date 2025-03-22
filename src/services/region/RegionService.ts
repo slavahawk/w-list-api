@@ -1,5 +1,6 @@
 import { api } from "../../api/api";
 import type { RegionResponse, UpdateRegionRequest } from "./types";
+import { Region } from "./types";
 
 const url = "/regions";
 
@@ -9,22 +10,25 @@ export const RegionService = {
     return response.data;
   },
 
-  async getById(id: number): Promise<RegionResponse> {
-    const response = await api.get<RegionResponse>(`${url}/${id}`);
+  async getById(id: number): Promise<Region> {
+    const response = await api.get<Region>(`${url}/${id}`);
     return response.data;
   },
 
-  async update(id: number, data: UpdateRegionRequest): Promise<RegionResponse> {
-    const response = await api.put<RegionResponse>(`${url}/${id}`, data);
+  async update(id: number, data: UpdateRegionRequest): Promise<Region> {
+    const response = await api.put<Region>(`${url}/${id}`, data);
     return response.data;
   },
 
-  async delete(id: number): Promise<void> {
-    await api.delete(`${url}/${id}`);
+  async delete(id: number): Promise<any> {
+    const data = await api.delete<any>(`${url}/${id}`);
+    return data;
   },
 
-  async getAll(): Promise<RegionResponse[]> {
-    const response = await api.get<RegionResponse[]>(`${url}`);
+  async getAll(countryId?: number, name?: string): Promise<RegionResponse[]> {
+    const response = await api.get<RegionResponse[]>(`${url}`, {
+      params: { countryId, name },
+    });
     return response.data;
   },
 };

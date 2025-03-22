@@ -63,8 +63,9 @@ export const WineListItemService = {
     return response.data;
   },
 
-  async delete(listId: number, itemId: number): Promise<void> {
-    await api.delete(`${url}/${listId}/items/${itemId}`);
+  async delete(listId: number, itemId: number): Promise<any> {
+    const data = await api.delete<any>(`${url}/${listId}/items/${itemId}`);
+    return data;
   },
 
   async getCandidates(listId: number, name: string): Promise<WineListItem[]> {

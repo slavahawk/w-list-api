@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { CountryResponse, CountryRequest } from "./types";
+import { CountryResponse, CountryRequest, Country } from "./types";
 
 const url = "/countries";
 
@@ -9,18 +9,19 @@ export const CountryService = {
     return response.data;
   },
 
-  async getById(id: number): Promise<CountryResponse> {
-    const response = await api.get<CountryResponse>(`${url}/${id}`);
+  async getById(id: number): Promise<Country> {
+    const response = await api.get<Country>(`${url}/${id}`);
     return response.data;
   },
 
-  async update(id: number, data: CountryRequest): Promise<CountryResponse> {
-    const response = await api.put<CountryResponse>(`${url}/${id}`, data);
+  async update(id: number, data: CountryRequest): Promise<Country> {
+    const response = await api.put<Country>(`${url}/${id}`, data);
     return response.data;
   },
 
-  async delete(id: number): Promise<void> {
-    await api.delete(`${url}/${id}`);
+  async delete(id: number): Promise<any> {
+    const data = await api.delete<any>(`${url}/${id}`);
+    return data;
   },
 
   async getAll(): Promise<CountryResponse[]> {
