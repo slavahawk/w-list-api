@@ -39,4 +39,9 @@ export const WineListService = {
     );
     return response.data;
   },
+
+  async clone(body: { wineListId: number; name: string }): Promise<WineList> {
+    const response = await api.post<WineList>(`${url}/clone`, body);
+    return response.data;
+  },
 };

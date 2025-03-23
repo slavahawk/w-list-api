@@ -46,6 +46,11 @@ export const AuthService = {
     const response = await api.post<ApiResponse>(
       `${url}/forgot-password`,
       data,
+      {
+        headers: {
+          Authorization: undefined, // Это уберет заголовок Authorization из запроса
+        },
+      },
     );
     return response.data;
   },
