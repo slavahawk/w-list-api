@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import type { Invitation, InvitationRequest } from "./types";
+import type { Invitation, InvitationRequest } from "wlist-types";
 
 const url = "/invitations";
 

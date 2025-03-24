@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { CreateWineListRequest, WineList } from "./types";
+import { CreateWineListRequest, WineList } from "wlist-types";
 
 const url = "/wine-lists";
 

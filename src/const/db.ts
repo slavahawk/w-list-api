@@ -1,8 +1,4 @@
-import {
-  SugarTypeEnum,
-  WineCategoryEnum,
-  WineColourEnum,
-} from "../services/wine/types";
+import { SugarTypeEnum, WineCategoryEnum, WineColourEnum } from "wlist-types";
 
 export const categoryOptions = [
   { label: "Игристое", value: WineCategoryEnum.SPARKLING },

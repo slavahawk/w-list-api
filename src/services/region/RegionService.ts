@@ -1,6 +1,5 @@
 import { api } from "../../api/api";
-import type { RegionResponse, UpdateRegionRequest } from "./types";
-import { Region } from "./types";
+import { Region, RegionResponse, UpdateRegionRequest } from "wlist-types";
 
 const url = "/regions";
 

@@ -9,9 +9,6 @@ export * from "./src/services/wineList";
 export * from "./src/services/wineListItem";
 export * from "./src/services/activeWineList";
 
-// Общий экспорт типов
-export * from "./src/types/types";
-
 // const
 export * from "./src/const/localstorage";
 export * from "./src/const/db";

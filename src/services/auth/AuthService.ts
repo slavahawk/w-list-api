@@ -1,5 +1,7 @@
 import { api } from "../../api/api";
-import type {
+import { API_URL } from "../../const/api";
+import {
+  ForgotPasswordRequest,
   AuthResponse,
   LoginRequest,
   LogoutRequest,
@@ -7,10 +9,8 @@ import type {
   RefreshTokenRequest,
   RegistrationRequest,
   ResetPasswordRequest,
-} from "./types";
-import { ForgotPasswordRequest } from "./types";
-import { API_URL } from "../../const/api";
-import { ApiResponse } from "../../types/types";
+  ApiResponse,
+} from "wlist-types";
 
 const url = "/auth";
 

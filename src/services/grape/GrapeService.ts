@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { GrapeResponse, GrapeRequest, Grape } from "./types";
+import { GrapeResponse, GrapeRequest, Grape } from "wlist-types";
 
 const url = "/grapes";
 

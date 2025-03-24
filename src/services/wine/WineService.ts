@@ -7,7 +7,7 @@ import {
   SearchWineRequest,
   WineRequest,
   WineFilters,
-} from "./types";
+} from "wlist-types";
 
 const url = "/wines";
 

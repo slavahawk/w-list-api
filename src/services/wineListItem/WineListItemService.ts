@@ -5,8 +5,8 @@ import {
   WineListItem,
   WineListItemRequest,
   WineListItemResponses,
-} from "./types";
-import { WineFilters } from "../wine";
+  WineFilters,
+} from "wlist-types";
 
 const url = "/wine-lists";
 

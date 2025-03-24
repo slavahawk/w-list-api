@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { CountryResponse, CountryRequest, Country } from "./types";
+import { CountryResponse, CountryRequest, Country } from "wlist-types";
 
 const url = "/countries";
 
