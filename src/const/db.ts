@@ -16,16 +16,6 @@ export const categoryOptions = [
   { label: "Другие", value: WineCategoryEnum.OTHER },
 ];
 
-export const showVintage = (category: WineCategoryEnum) => {
-  const excludedCategories = [
-    WineCategoryEnum.GRAPPA,
-    WineCategoryEnum.LIQUEUR,
-    WineCategoryEnum.AQUAVIT,
-  ];
-
-  return !excludedCategories.includes(category);
-};
-
 export const colourOptions = [
   { label: "Белое", value: WineColourEnum.WHITE },
   { label: "Оранжевое", value: WineColourEnum.ORANGE },
@@ -44,7 +34,7 @@ const volumesBottle = [
   250, 330, 375, 400, 500, 680, 700, 740, 750, 1000, 1500, 3000, 4500, 6000,
 ];
 
-const volumesGlass = [40, 50, 75, 100, 125];
+const volumesGlass = [40, 50, 75, 100, 125, 150];
 
 export const bottleVolumeOptions = volumesBottle.map((volume) => ({
   name: `${volume}мл`,
